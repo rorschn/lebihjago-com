@@ -19,7 +19,7 @@
                 </div>
                 <div class="col align-self-center ps-0">
                     <h4 class="text-color-theme">{{ Auth::user()->name }}</h4>
-                    <p class="text-muted mb-1">Made unrealized Rp 8,850,000 profit so far <a href="#" id="profit-toggle">►</a></p>
+                    <!--<p class="text-muted mb-1">Made unrealized Rp 8,850,000 profit so far <a href="#" id="profit-toggle">►</a></p>-->
                     <ul id="profit-breakdown" class="text-muted small mb-0">
                         <li>Petty Cash: Rp 100,000</li>
                         <li>📱 iPhone 15: Rp 7,650,000</li>
