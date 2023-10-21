@@ -45,7 +45,7 @@
                 <div class="loader-cube-wrap loader-cube-animate mx-auto">
                     <img src="{{asset('/img/logo.png')}}" alt="Logo">
                 </div>
-                <p class="mt-4">It's time for track budget<br><strong>Please wait...</strong></p>
+                <p class="mt-4">I'm more 'jago' than the Jago Bank! Bitcoin = the best investment.</p>
             </div>
         </div>
     </div>
