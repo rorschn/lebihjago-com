@@ -43,7 +43,7 @@
         <div class="row h-100">
             <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto text-center align-self-center">
                 <div class="loader-cube-wrap loader-cube-animate mx-auto">
-                    <img src="assets/img/logo.png" alt="Logo">
+                    <img src="{{asset('/img/logo.png')}}" alt="Logo">
                 </div>
                 <p class="mt-4">It's time for track budget<br><strong>Please wait...</strong></p>
             </div>
@@ -84,7 +84,7 @@
                     <div class="nav-link">
                         <span class="theme-radial-gradient">
                             <i class="close bi bi-x"></i>
-                            <img src="assets/img/ayamjago/lightning.svg" class="nav-icon" alt="" />
+                            <img src="{{asset('/img/ayamjago/lightning.svg')}}" class="nav-icon" alt="" />
                         </span>
                         <div class="nav-menu-popover justify-content-between">
                             <button type="button" class="btn btn-lg btn-icon-text"
@@ -131,31 +131,31 @@
     Footer ends-->
 
     <!-- Required jquery and libraries -->
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/vendor/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('/js/popper.min.js')}}"></script>
+    <script src="{{asset('/vendor/bootstrap-5/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- cookie js -->
-    <script src="assets/js/jquery.cookie.js"></script>
+    <script src="{{asset('/js/jquery.cookie.js')}}"></script>
 
     <!-- Customized jquery file  -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/color-scheme.js"></script>
+    <script src="{{asset('/js/main.js')}}"></script>
+    <script src="{{asset('/js/color-scheme.js')}}"></script>
 
     <!-- PWA app service registration and works -->
-    <script src="assets/js/pwa-services.js"></script>
+    <script src="{{asset('/js/pwa-services.js')}}"></script>
 
     <!-- Chart js script -->
-    <script src="assets/vendor/chart-js-3.3.1/chart.min.js"></script>
+    <script src="{{asset('/vendor/chart-js-3.3.1/chart.min.js')}}"></script>
 
     <!-- Progress circle js script -->
-    <script src="assets/vendor/progressbar-js/progressbar.min.js"></script>
+    <script src="{{asset('/vendor/progressbar-js/progressbar.min.js')}}"></script>
 
     <!-- swiper js script -->
-    <script src="assets/vendor/swiperjs-6.6.2/swiper-bundle.min.js"></script>
+    <script src="{{asset('/vendor/swiperjs-6.6.2/swiper-bundle.min.js')}}"></script>
 
     <!-- page level custom script -->
-    <script src="assets/js/app.js"></script>
+    <script src="{{asset('/js/app.js')}}"></script>
 
 </body>
 

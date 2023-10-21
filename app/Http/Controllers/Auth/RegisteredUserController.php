@@ -39,30 +39,34 @@ class RegisteredUserController extends Controller
         ]);
 
         $response = Http::withHeaders([
-            'X-Api-Key' => '47fb61d3969d48fa9eeab4ce679da1d1',
+            'X-Api-Key' => env('LNBITS_ADMIN_KEY'),
             'Content-type' => 'application/json'
         ])->post('https://legend.lnbits.com/usermanager/api/v1/users', [
-            'admin_id' => 'b7c9f5c06ab348c1908f4402ef786758',
-            'wallet_name' => 'Petty Cash',
-            'user_name' => $request->email,
+            'wallet_name' => $request->name."'s Petty Cash",
+            'user_name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
         ]);
 
         if($response->successful()){
+            
             $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
+                'lnbits_id' => $response["id"],
+                'name' => $response["name"],
+                'email' => $response["email"],
+                'pc_wallet_id' => $response["wallets"]["0"]["id"],
+                'pc_wallet_adminkey' => $response["wallets"]["0"]["adminkey"],
+                'pc_wallet_inkey' => $response["wallets"]["0"]["inkey"],
                 'password' => Hash::make($request->password),
             ]);
-    
+
             event(new Registered($user));
     
             Auth::login($user);
 
             return redirect(RouteServiceProvider::HOME);
+            
         }else{
-            dd($response);
+            print_r($response);
         }
 
         

@@ -116,7 +116,7 @@
                 <div class="col-12">
                     <div class="card mb-3">
                         <div class="card-body">
-                            <a href="new-dream.html" class="stretched-link"></a>
+                            <a href="{{ url('dreams/create') }}" class="stretched-link"></a>
                             <div class="row">
                                 <div class="col align-self-center click" >
                                     <div class="row mb-0">
