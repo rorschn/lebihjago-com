@@ -154,8 +154,6 @@
     <!-- swiper js script -->
     <script src="{{asset('/vendor/swiperjs-6.6.2/swiper-bundle.min.js')}}"></script>
 
-    <script src="{{asset('/js/jquery.formatCurrency-1.4.0.min.js')}}"></script>
-
     <!-- page level custom script -->
     <script src="{{asset('/js/app.js')}}"></script>
 

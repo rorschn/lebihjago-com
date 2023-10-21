@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', $name)
+@section('title', 'Petty Cash')
 
 @section('content')
 
@@ -14,10 +14,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col align-self-center">
-                            <h4 class="mb-0">{{$name}}</h4>
+                            <h4 class="mb-0">Petty Cash</h4>
                         </div>
                         <div class="col-auto">
-                            <p class="text-muted">🎯 Rp <span class="currency">{{$target}}</span></p>
+                            <p class="text-muted"></span></p>
                         </div>
                     </div>
                 </div>
@@ -25,66 +25,19 @@
                     <div class="card-body">
                         <h1 class="display-1 my-2">Rp <span class="currency">{{$balance_in_idr}}</span>
                             </h1>
-                        <p class="text-muted mb-2">the current value of your <span class="currency">{{$balance}}</span> sats now.</p>
-                        <p class="text-muted mb-2">{{100-floor(($balance_in_idr/$target)*100)}}% away to reach the target 🎯 & sell your sats.</p>
+                        <p class="text-muted mb-2">is the current value of your <span class="currency">{{$balance}}</span> sats now.</p>
                         <div class="mt-4 mb-3">
-                            <!-- To do kalkulator
-                            <a href="#" id="cal-btn" class="btn btn-44 btn-default shadow-sm ms-1 border-white">
-                                <i class="bi bi-calculator-fill"></i>
-                            </a>
-                            -->
-                            <a href="{{url('')."/".$lnbits_id."/receive-sats"}}" class="btn btn-44 btn-default shadow-sm ms-1 border-white">
+                            <a href="{{url('')."/".$inkey."/receive-sats"}}" class="btn btn-44 btn-default shadow-sm ms-1 border-white">
                                 <i class="bi bi-arrow-down-left-circle"></i>
                             </a>
-                            @if ($balance_in_idr >= $target)
-                                <a href="{{url('')."/".$inkey."/send-sats"}}" class="btn btn-44 btn-default shadow-sm ms-1 border-white">
-                                    <i class="bi bi-arrow-up-right-circle"></i>
-                                </a>
-                            @endif
+                            <a href="{{url('')."/".$inkey."/send-sats"}}" class="btn btn-44 btn-default shadow-sm ms-1 border-white">
+                                <i class="bi bi-arrow-up-right-circle"></i>
+                            </a>
                         </div>
-                        <!--
-                        <div id="calculator" class="mb-3">
-                            to achieve the rest of saving target above on
-                            <select class="form-select form-select-sm mt-2 mx-auto" style="width: 100px;">
-                                <option selected>Month</option>
-                                <option value="1">Jan</option>
-                                <option value="2">Feb</option>
-                                <option value="3">Mar</option>
-                                <option value="4">Apr</option>
-                                <option value="5">May</option>
-                                <option value="6">Jun</option>
-                                <option value="7">Jul</option>
-                                <option value="8">Aug</option>
-                                <option value="9">Sep</option>
-                                <option value="10">Oct</option>
-                                <option value="11">Nov</option>
-                                <option value="12">Dec</option>
-                            </select>
-                            <input type="number" id="year" class="form-control mt-2 mb-1 mx-auto" placeholder="year" style="width: 90px;">
-                            buy at minimum <span id="cal-result">...</span> sats per day.<br>(based on bitcoin's price history)
-                        </div>
-                    -->
                     </div>
                 </div>
             </div>
             
-            <!-- offers banner-->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <div class="card shadow-sm text-center">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col align-self-center">
-                                    <h1 style="color: green;">Rp <span class="currency">{{$balance_in_idr-$total_idr_saving}}</span></h1>
-                                    <p class="size-12 text-muted">
-                                        The 120% profit you made. Current bitcoin value (Rp <span class="currency">{{$balance_in_idr}}</span> ) - total rupiah value from each of your bitcoin buyings (Rp <span class="currency">{{$total_idr_saving}}</span>). 
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row mb-1">
                 <div class="col">
                     <h6 class="title mb-0">Transactions</h6>

@@ -44,6 +44,7 @@ class DreamController extends Controller
             $validated["adminkey"] = $response["adminkey"];
             $validated["inkey"] = $response["inkey"];
             $validated["lnbits_id"] = $response["id"]; 
+            $validated["total_idr_saving"] = 0;
         }else{
             echo "error from lnbits";
         }
@@ -67,6 +68,8 @@ class DreamController extends Controller
             'X-Api-Key' => $dream->inkey,
             'Content-type' => 'application/json'
         ])->get('https://legend.lnbits.com/api/v1/wallet')->json();
+        $data["lnbits_id"] = $dream->lnbits_id;
+        $data["inkey"] = $dream->inkey;
         $data["name"] = $response["name"];
         $data["balance"] = floor($response["balance"]/1000);
         $data["target"] = $dream->target;

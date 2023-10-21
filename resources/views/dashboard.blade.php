@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="petty-cash.html" class="stretched-link"></a>
+                    <a href="{{url('petty-cash')}}" class="stretched-link"></a>
                 </div>
             </div>
 

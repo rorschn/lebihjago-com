@@ -49,7 +49,7 @@
                         <label for="confirmpassword">Confirm Password</label>
                     </div>
                     <p class="mb-3"><span class="text-muted">
-                        <strong>Proof-of-concept purpose only!</strong> By clicking on Signup button, you acknowledge that the data will only be .</p>
+                        <strong>Proof-of-concept purpose only!</strong> By clicking on the button below, you're agree that you'll move your sats here before November 2023 ends.</p>
                     <button type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow">
                         Sign up
                     </button>
