@@ -27,7 +27,8 @@ class Dream extends Model
         'name',
         'admin',
         'adminkey',
-        'inkey'
+        'inkey',
+        'total_idr_saving',
     ];
 
     

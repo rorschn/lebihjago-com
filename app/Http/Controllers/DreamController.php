@@ -61,6 +61,8 @@ class DreamController extends Controller
      */
     public function show(Dream $dream)
     {
+        $dream = Dream::find($dream)->firstOrFail();
+        print_r($dream->name);
         echo "halaman mimpi";
     }
 

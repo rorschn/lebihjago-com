@@ -70,13 +70,15 @@
                                             <p class="mb-0 small">
                                                 <span class="small">Rp</span> {{$d["balance_in_idr"]}} in ₿ 
                                                 <span class="text-muted">from <span class="small">Rp</span> {{$d["total_idr_saving"]}} 💵</span>
-                                                (<strong style="color: 
+                                                @if ( $d["total_idr_saving"] )
+                                                    (<strong style="color: 
                                                     @if($d["balance_in_idr"] >= $d["total_idr_saving"])
-                                                         green;
+                                                        green;
                                                     @else
                                                         red;
                                                     @endif     
                                                     ">{{($d["balance_in_idr"] / $d["total_idr_saving"])*100}}%</strong>)
+                                                @endif
                                             </p>
                                         </div>
                                         <div class="col-auto text-end">
