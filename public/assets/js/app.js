@@ -158,36 +158,7 @@ $(window).on('load', function () {
             // progressCircles1.text.style.fontSize = '20px';
             progressCircles1.animate(0.11);  // Number from 0.0 to 1.0
 
-            var progressCircles2 = new ProgressBar.Circle(circleprogresstwo, {
-                color: '#7297F8',
-                // This has to be the same size as the maximum width to
-                // prevent clipping
-                strokeWidth: 10,
-                trailWidth: 10,
-                easing: 'easeInOut',
-                trailColor: '#d8e0f9',
-                duration: 1400,
-                text: {
-                    autoStyleContainer: false
-                },
-                from: { color: '#7297F8', width: 10 },
-                to: { color: '#7297F8', width: 10 },
-                // Set default step function for all animate calls
-                step: function (state, circle) {
-                    circle.path.setAttribute('stroke', state.color);
-                    circle.path.setAttribute('stroke-width', state.width);
-
-                    var value = Math.round(circle.value() * 100);
-                    if (value === 0) {
-                        //  circle.setText('');
-                    } else {
-                        // circle.setText(value + "<small>%<small>");
-                    }
-
-                }
-            });
-            // progressCircles2.text.style.fontSize = '20px';
-            progressCircles2.animate(0.85);  // Number from 0.0 to 1.0
+            
 
 
 

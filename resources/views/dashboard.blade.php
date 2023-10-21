@@ -36,7 +36,7 @@
                                 <div class="col">
                                     <p class="text-muted mb-0 strong"><strong>Petty Cash</strong></p>
                                     <p class="mb-0 small">
-                                        <span>Rp 440,000</span>  in ₿ (100,000 sats)
+                                        <span>Rp {{$pc["balance_idr"]}}</span> in ₿ ({{$pc["balance"]}} sats)
                                     </p>
                                 </div>
                             </div>
@@ -49,30 +49,48 @@
             <!-- Saving targets -->
             <div class="row mb-4">
                 <h6 class="title mb-3">Stacking Sats to Reach My Dreams</h6>
+                @foreach ($dreams as $i => $d)
                 <div class="col-12">
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto">
                                     <div class="circle-small">
-                                        <div id="circleprogresstwo"></div>
+                                        <div id="circleprogress{{$i}}"></div>
                                         <div class="avatar avatar-30 alert-primary text-primary rounded-circle">
-                                            <span class="small">93%</span>
+                                            <span class="small">{{
+                                                floor(($d["balance_in_idr"]/$d["target"])*100)}}%</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col align-self-center ps-0 click" >
                                     <div class="row mb-0">
                                         <div class="col">
-                                            <p class="text-muted mb-0 strong"><strong>📱 iPhone 15</strong></p>
+                                            <p class="text-muted mb-0 strong"><strong>{{$d["name"]}}</strong></p>
                                             <p class="mb-0 small">
-                                                <span class="small">Rp</span> 14,000,000 in ₿ 
-                                                <span class="text-muted">from <span class="small">Rp</span> 6,350,000 💵</span>
-                                                (<strong style="color: green;">120%</strong>)
+                                                <span class="small">Rp</span> {{$d["balance_in_idr"]}} in ₿ 
+                                                <span class="text-muted">from <span class="small">Rp</span> {{$d["total_idr_saving"]}} 💵</span>
+                                                (<strong style="color: 
+                                                    @if($d["balance_in_idr"] >= $d["total_idr_saving"])
+                                                         green;
+                                                    @else
+                                                        red;
+                                                    @endif     
+                                                    ">{{($d["balance_in_idr"] / $d["total_idr_saving"])*100}}%</strong>)
                                             </p>
                                         </div>
                                         <div class="col-auto text-end">
-                                            <p class="small text-muted mb-0">🎯 15 mil</p>
+                                            <p class="small text-muted mb-0">🎯
+                                                @php
+                                                    if($d["target"] > 999999){
+                                                        echo floor($d["target"]/1000000). " mil";
+                                                    }elseif(($d["target"] > 999)){
+                                                        echo floor($d["target"]/1000). "k";
+                                                    }else{
+                                                        echo $d["target"];
+                                                    }
+                                                @endphp
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -82,6 +100,8 @@
                         
                     </div>
                 </div>
+                @endforeach
+                
                 <div class="col-12">
                     <div class="card mb-3">
                         <div class="card-body">
@@ -200,4 +220,39 @@
 
         @include('layouts.install-pwa-toast')
 
+@endsection
+
+@section('javascript')
+<script>
+    @foreach ($dreams as $i => $d)
+        new ProgressBar.Circle(circleprogress{{$i}}, {
+            color: '#7297F8',
+            // This has to be the same size as the maximum width to
+            // prevent clipping
+            strokeWidth: 10,
+            trailWidth: 10,
+            easing: 'easeInOut',
+            trailColor: '#d8e0f9',
+            duration: 1400,
+            text: {
+                autoStyleContainer: false
+            },
+            from: { color: '#7297F8', width: 10 },
+            to: { color: '#7297F8', width: 10 },
+            // Set default step function for all animate calls
+            step: function (state, circle) {
+                circle.path.setAttribute('stroke', state.color);
+                circle.path.setAttribute('stroke-width', state.width);
+
+                var value = Math.round(circle.value() * 100);
+                if (value === 0) {
+                    //  circle.setText('');
+                } else {
+                    // circle.setText(value + "<small>%<small>");
+                }
+
+            }
+        }).animate({{$d["target"]/$d["balance_in_idr"]}});  // Number from 0.0 to 1.0
+    @endforeach    
+</script>
 @endsection

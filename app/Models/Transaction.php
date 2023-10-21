@@ -5,16 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dream extends Model
+class Transaction extends Model
 {
     use HasFactory;
-
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -22,13 +15,11 @@ class Dream extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'lnbits_id',
-        'target',
-        'name',
-        'admin',
-        'adminkey',
-        'inkey'
+        'wallet_id',
+        'amount',
+        'amount_in_idr',
+        'fee',
+        'memo',
+        'time'
     ];
-
-    
 }

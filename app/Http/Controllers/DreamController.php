@@ -53,8 +53,6 @@ class DreamController extends Controller
         }else{
             echo "lnbits was okay, but dream couldn't be created.";
         }
- 
-        
         
     }
 
@@ -63,7 +61,7 @@ class DreamController extends Controller
      */
     public function show(Dream $dream)
     {
-        //
+        echo "halaman mimpi";
     }
 
     /**
