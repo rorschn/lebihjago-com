@@ -27,7 +27,7 @@ class DreamController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'target' => 'integer'
+            'target' => 'integer|min:1'
         ]);
         $validated["name"] = $request->name; 
 
@@ -62,8 +62,28 @@ class DreamController extends Controller
     public function show(Dream $dream)
     {
         $dream = Dream::find($dream)->firstOrFail();
-        print_r($dream->name);
-        echo "halaman mimpi";
+        // udpate the recent balance
+        $response = Http::withHeaders([
+            'X-Api-Key' => $dream->inkey,
+            'Content-type' => 'application/json'
+        ])->get('https://legend.lnbits.com/api/v1/wallet')->json();
+        $data["name"] = $response["name"];
+        $data["balance"] = floor($response["balance"]/1000);
+        $data["target"] = $dream->target;
+        $data["total_idr_saving"] = $dream->total_idr_saving;
+
+        // get rupiah price of sat
+        $response = Http::withHeaders([
+            'X-Api-Key' => env('LNBITS_ADMIN_KEY'),
+            'Content-type' => 'application/json'
+        ])->post('https://legend.lnbits.com/api/v1/conversion', [
+            "from_" => "sat",
+            "amount" => 1,
+            "to" => "idr",
+        ]);
+        $data["balance_in_idr"] = floor($response["IDR"]*$data["balance"]); 
+
+        return view('dream', $data);
     }
 
     /**

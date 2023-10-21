@@ -45,6 +45,7 @@ class AppController extends Controller
                 'X-Api-Key' => $d->inkey,
                 'Content-type' => 'application/json'
             ])->get('https://legend.lnbits.com/api/v1/wallet')->json();
+            $response["id"] = $d->id;
             $response["lnbits_id"] = $d->lnbits_id;
             $response["target"] = $d->target;
             $response["total_idr_saving"] = $d->total_idr_saving;

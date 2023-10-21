@@ -36,7 +36,7 @@
                                 <div class="col">
                                     <p class="text-muted mb-0 strong"><strong>Petty Cash</strong></p>
                                     <p class="mb-0 small">
-                                        <span>Rp {{$pc["balance_idr"]}}</span> in ₿ ({{$pc["balance"]}} sats)
+                                        <span class="currency">Rp {{$pc["balance_idr"]}}</span> in ₿ (<span class="currency">{{$pc["balance"]}}</span> sats)
                                     </p>
                                 </div>
                             </div>
@@ -68,7 +68,8 @@
                                         <div class="col">
                                             <p class="text-muted mb-0 strong"><strong>{{$d["name"]}}</strong></p>
                                             <p class="mb-0 small">
-                                                <span class="small">Rp</span> {{$d["balance_in_idr"]}} in ₿ 
+                                                 <span class="small">Rp</span> <span class="currency">{{$d["balance_in_idr"]}}</span>
+                                                  in ₿ 
                                                 <span class="text-muted">from <span class="small">Rp</span> {{$d["total_idr_saving"]}} 💵</span>
                                                 @if ( $d["total_idr_saving"] )
                                                     (<strong style="color: 
@@ -97,44 +98,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="a-dream.html" class="stretched-link"></a>
+                            <a href="{{url('dreams')."/".$d["id"]}}" class="stretched-link"></a>
                         </div>
                         
                     </div>
                 </div>
                 @endforeach
                 
-                <div class="col-12">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-auto">
-                                    <div class="circle-small">
-                                        <div id="circleprogressone"></div>
-                                        <div class="avatar avatar-30 alert-primary text-primary rounded-circle">
-                                            <span class="small">11%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col align-self-center ps-0">
-                                    <div class="row mb-0">
-                                        <div class="col">
-                                            <p class="text-muted mb-0 strong"><strong>🏍️ Motorcycle</strong></p>
-                                            <p class="mb-0 small">
-                                                <span class="small">Rp</span> 2,200,000 in ₿ 
-                                                <span class="text-muted">from <span class="small">Rp</span> 1,000,000 💵</span>
-                                                (<strong style="color: green;">120%</strong>)
-                                            </p>
-                                        </div>
-                                        <div class="col-auto text-end">
-                                            <p class="small text-muted mb-0">🎯 20 mil</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-12">
                     <div class="card mb-3">
                         <div class="card-body">
@@ -254,7 +224,7 @@
                 }
 
             }
-        }).animate({{$d["target"]/$d["balance_in_idr"]}});  // Number from 0.0 to 1.0
+        }).animate({{$d["balance_in_idr"]/$d["target"]}});  // Number from 0.0 to 1.0
     @endforeach    
 </script>
 @endsection

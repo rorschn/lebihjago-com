@@ -1,8 +1,25 @@
 'use strict';
 
+/**
+ * Author AGUS PRAWOTO HADI https://jagowebdev.com/format-rupiah-dengan-javascript/
+ * @param {*} input 
+ * @returns 
+ */
+function currencyformat(input){
+    var bilangan = input;
+    var	reverse = bilangan.toString().split('').reverse().join(''),
+        ribuan 	= reverse.match(/\d{1,3}/g);
+        ribuan	= ribuan.join('.').split('').reverse().join('');
+    return ribuan;
+}
+
 $(window).on('load', function () {
 
     var body = $('body');
+
+    $(".currency").each(function(){
+        $(this).html(currencyformat($(this).html()));
+    })
 
     switch (body.attr('data-page')) {
         case "splash":
@@ -78,14 +95,6 @@ $(window).on('load', function () {
                     window.location.replace("login");
                 }, 5000);
             }); */
-            break;
-
-        case "a-dream":
-            $( "#calculator" ).hide();
-            $( "#cal-btn" ).on( "click", function() {
-                $( "#calculator" ).slideToggle( );
-                return false;
-            });
             break;
 
         case "dashboard":

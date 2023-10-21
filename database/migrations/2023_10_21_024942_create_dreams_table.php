@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('adminkey');
             $table->string('inkey');
             $table->integer('target');
+            $table->integer('total_idr_saving');
             $table->timestamps();
         });
     }
