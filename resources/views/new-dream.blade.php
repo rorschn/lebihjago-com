@@ -83,7 +83,7 @@
                                         Having a liquid emergency fund is a good financial habit. Some people are even targeting 6 monthes living expense as emergency fund.
                                     </p>
                                     <p class="size-12 text-muted">
-                                        You can put some of the emergency fund in the sats (as long as you don't buy it where you're on the Mihal Pobul mountain). We have Petty Cash wallet where there's no limit on sending & receiving. You can quickly sell your sats to Rupiah.
+                                        You can put some of the emergency fund in the sats (as long as you don't buy it where you're on the Mihal Pobul mountain). We have Petty Cash wallet where there's no limit on sending & receiving. You can quickly sell your sats to Rupiah on <a href="https://paxful.com/">Paxful</a> or <a href="https://hodlhodl.com/">Hodl Hodl</a>.
                                     </p>
                                 </div>
                             </div>

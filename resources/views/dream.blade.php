@@ -77,7 +77,7 @@
                                 <div class="col align-self-center">
                                     <h1 style="color: green;">Rp <span class="currency">{{$balance_in_idr-$total_idr_saving}}</span></h1>
                                     <p class="size-12 text-muted">
-                                        The 120% profit you made. Current bitcoin value (Rp <span class="currency">{{$balance_in_idr}}</span> ) - total rupiah value from each of your bitcoin buyings (Rp <span class="currency">{{$total_idr_saving}}</span>). 
+                                        The {{($balance_in_idr/$total_idr_saving)*100}}% gain you made. Current bitcoin value (Rp <span class="currency">{{$balance_in_idr}}</span> ) - total rupiah value from each of your bitcoin buyings (Rp <span class="currency">{{$total_idr_saving}}</span>). 
                                     </p>
                                 </div>
                             </div>
