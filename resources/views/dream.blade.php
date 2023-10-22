@@ -68,8 +68,10 @@
                 </div>
             </div>
             
+            
             <!-- offers banner-->
             <div class="row mb-4">
+                @if($total_idr_saving)
                 <div class="col-12">
                     <div class="card shadow-sm text-center">
                         <div class="card-body">
@@ -84,6 +86,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
             <div class="row mb-1">
                 <div class="col">
